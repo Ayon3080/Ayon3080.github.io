@@ -54,7 +54,7 @@
     nav a {
       margin-left: 20px;
       text-decoration: none;
-      color: var(--text);
+      color: green;
       font-weight: 500;
       opacity: .95;
     }
@@ -167,17 +167,17 @@
   </div>
   <div style="display:flex;align-items:center;gap:12px;">
     <nav>
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+      <a style="color: green;" href="#about">About</a>
+      <a style="color: green;" href="#education">Education</a>
+      <a style="color: green;" href="#projects">Projects</a>
+      <a style="color: green;" href="#skills">Skills</a>
+      <a style="color: green;" href="#contact">Contact</a>
     </nav>
 
     <!-- Theme toggle -->
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
       <span id="theme-icon">🌙</span>
-      <span id="theme-label">Dark</span>
+      
     </button>
   </div>
 </header>
@@ -197,7 +197,7 @@
     <h3>Bachelor of Science (BSc) — Computer Science & Engineering</h3>
     <p><strong>American International University-Bangladesh (AIUB)</strong></p>
     <p>Jan 2023 - Jul 2026</p>
-    <p>Credits Completed: 46 | CGPA: 3.4</p>
+    
   </div>
 
   <div class="education-card">
@@ -218,14 +218,22 @@
 
   <div class="project-card">
     <h3>Regional Product Trade</h3>
-    <p>A platform designed to support and promote local regional products, enabling smoother trade and accessibility.</p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/Ayon3080/regionalProductTrade" target="_blank">github.com/Ayon3080/regionalProductTrade</a></p>
+    
+    <ul style="margin-left:20px; margin-top:10px;">
+      <li>Designed and developed a web-based platform for trading regional products using modern web technologies.</li>
+      <li>Implemented front-end interfaces and contributed to backend logic to support listing, browsing, and user interactions.</li>
+    </ul>
+    <p><strong>GitHub:</strong> <a style="color: green;" href="https://github.com/Ayon3080/regionalProductTrade" target="_blank">github.com/Ayon3080/regionalProductTrade</a></p>
   </div>
 
   <div class="project-card">
     <h3>Metro Rail Online Ticketing System</h3>
-    <p>An online ticketing solution for metro rail passengers focusing on fast booking, user experience, and accessibility.</p>
-    <p><strong>GitHub:</strong> <a href="https://github.com/Ayon3080/Metro-rail-online-ticketing-system" target="_blank">github.com/Ayon3080/Metro-rail-online-ticketing-system</a></p>
+    <ul style="margin-left:20px; margin-top:10px;">
+      <li>Developed an online ticketing concept system for metro rail passengers.</li>
+      <li>Implemented login, booking, scheduling, and ticket-generation functionalities.</li>
+      <li>Collaborated in structuring the system logic to ensure reliability and ease of use.</li>
+    </ul>
+    <p><strong>GitHub:</strong> <a style="color: green;" href="https://github.com/Ayon3080/Metro-rail-online-ticketing-system" target="_blank">github.com/Ayon3080/Metro-rail-online-ticketing-system</a></p>
   </div>
 </section>
 
@@ -243,7 +251,7 @@
     <div class="skill-item">JavaScript</div>
     <div class="skill-item">Python</div>
     <div class="skill-item">C Programming</div>
-    <div class="skill-item">Digital Logic Basics</div>
+    
   </div>
 </section>
 
@@ -251,30 +259,28 @@
   <h2 class="section-title">Contact</h2>
   <p style="display:flex;align-items:center;gap:10px;">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email" width="22" height="22" style="filter:invert(0.3);">
-    <a href="mailto:ayon3080@gmail.com">ayon3080@gmail.com</a>
+    <a style="color: green;" href="mailto:ayon3080@gmail.com">ayon3080@gmail.com</a>
   </p>
 
   <p style="display:flex;align-items:center;gap:10px;">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="22" height="22" style="filter:invert(0.3);">
-    <a href="https://www.linkedin.com/in/ayon3080/" target="_blank">linkedin.com/in/ayon3080</a>
+    <a style="color: green;" href="https://www.linkedin.com/in/ayon3080/" target="_blank">linkedin.com/in/ayon3080</a>
   </p>
 
   <p style="display:flex;align-items:center;gap:10px;">
     <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="22" height="22" style="filter:invert(0.3);">
-    <a href="https://github.com/Ayon3080" target="_blank">github.com/Ayon3080</a>
+    <a style="color: green;" href="https://github.com/Ayon3080" target="_blank">github.com/Ayon3080</a>
   </p>
 </section>
 
 <footer>
-  © 2025 Ayon — All Rights Reserved
+  © 2025 Ayon Ghosh — All Rights Reserved
 </footer>
 
 <script>
   (function(){
-    const body = document.documentElement || document.querySelector('html');
     const toggle = document.getElementById('theme-toggle');
     const icon = document.getElementById('theme-icon');
-    const label = document.getElementById('theme-label');
 
     // apply stored preference or OS preference
     const stored = localStorage.getItem('theme');
@@ -283,12 +289,10 @@
     function applyTheme(isDark){
       if(isDark){
         document.body.classList.add('dark');
-        icon.textContent = '☀️';
-        label.textContent = 'Light';
+        if(icon) icon.textContent = '☀️';
       } else {
         document.body.classList.remove('dark');
-        icon.textContent = '🌙';
-        label.textContent = 'Dark';
+        if(icon) icon.textContent = '🌙';
       }
     }
 
@@ -299,11 +303,13 @@
       applyTheme(false);
     }
 
-    toggle.addEventListener('click', ()=>{
-      const isDark = document.body.classList.toggle('dark');
-      localStorage.setItem('theme', isDark ? 'dark' : 'light');
-      applyTheme(isDark);
-    });
+    if(toggle){
+      toggle.addEventListener('click', ()=>{
+        const isDark = document.body.classList.toggle('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        applyTheme(isDark);
+      });
+    }
 
     // respond to OS changes if no explicit preference saved
     window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e=>{
