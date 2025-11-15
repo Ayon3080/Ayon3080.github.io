@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student ePortfolio</title>
+  <style>
+    :root{
+      --bg: #f5f6fa;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #6a00ff;
+      --header-bg: #ffffff;
+      --footer-bg: #111111;
+      --hero-gradient: linear-gradient(135deg, #0066ff, #6a00ff);
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .dark{
+      --bg: #0b0f14;
+      --card: #0f1720;
+      --text: #e6eef8;
+      --muted: #9aa6b2;
+      --accent: #7c5cff;
+      --header-bg: #071022;
+      --footer-bg: #020406;
+      --hero-gradient: linear-gradient(135deg,#0f1720,#14213d);
+      --shadow: 0 6px 18px rgba(2,6,23,0.6);
+    }
+
+    *{box-sizing:border-box}
+    body {
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background .25s ease, color .25s ease;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 36px;
+      background: var(--header-bg);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+    }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+      opacity: .95;
+    }
+
+    .theme-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      cursor:pointer;
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.06);
+      padding:6px 10px;
+      border-radius:10px;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 64px 48px;
+      background: var(--hero-gradient);
+      color: white;
+      transition: background .25s ease;
+    }
+    .hero-text h1 {
+      font-size: 44px;
+      margin: 0;
+      line-height:1.05;
+    }
+    .hero-text p {
+      font-size: 16px;
+      margin-top: 10px;
+      max-width: 520px;
+      opacity: .95;
+    }
+    .hero img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 5px solid rgba(255,255,255,0.6);
+    }
+
+    section {
+      padding: 48px;
+      max-width:1100px;
+      margin:0 auto;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin-bottom: 20px;
+      position: relative;
+      color: var(--text);
+    }
+    .section-title::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      border-radius: 4px;
+    }
+
+    .education-card, .project-card, .skill-item {
+      background: var(--card);
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      color: var(--text);
+      transition: background .25s ease, color .25s ease, box-shadow .25s ease;
+    }
+
+    .project-card h3 {
+      margin: 0 0 8px 0;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px;
+      margin-top: 12px;
+    }
+
+    footer {
+      background: var(--footer-bg);
+      color: var(--muted);
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    /* small screens */
+    @media (max-width:800px){
+      header{padding:12px 18px}
+      .hero{flex-direction:column;gap:20px;padding:36px 18px}
+      .hero img{width:160px;height:160px}
+      nav a{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <h2 style="margin:0">Ayon</h2>
+  </div>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Theme toggle -->
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+      <span id="theme-icon">🌙</span>
+      <span id="theme-label">Dark</span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="about">
+  <div class="hero-text">
+    <h1>Hi, I'm Ayon Ghosh</h1>
+    <p>A dedicated and ambitious Computer Science student focused on developing strong technical expertise and delivering impactful, real‑world solutions through programming, problem‑solving, and continuous learning.</p>
+  </div>
+  <img src="myphoto.jpg" alt="Profile Photo" />
+</section>
+
+<section id="education">
+  <h2 class="section-title">Education</h2>
+
+  <div class="education-card">
+    <h3>Bachelor of Science (BSc) — Computer Science & Engineering</h3>
+    <p><strong>American International University-Bangladesh (AIUB)</strong></p>
+    <p>Jan 2023 - Jul 2026</p>
+    <p>Credits Completed: 46 | CGPA: 3.4</p>
+  </div>
+
+  <div class="education-card">
+    <h3>Higher Secondary Certificate (H.S.C) — Science</h3>
+    <p><strong>Nawab Siraj-Ud-Dowla Government College</strong></p>
+    <p>Jan 2021 - Dec 2022</p>
+  </div>
+
+  <div class="education-card">
+    <h3>Secondary School Certificate (S.S.C) — Science</h3>
+    <p><strong>Natore Government Boys' High School, Natore</strong></p>
+    <p>Jan 2013 - Dec 2020</p>
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="section-title">Projects</h2>
+
+  <div class="project-card">
+    <h3>Regional Product Trade</h3>
+    <p>A platform designed to support and promote local regional products, enabling smoother trade and accessibility.</p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/Ayon3080/regionalProductTrade" target="_blank">github.com/Ayon3080/regionalProductTrade</a></p>
+  </div>
+
+  <div class="project-card">
+    <h3>Metro Rail Online Ticketing System</h3>
+    <p>An online ticketing solution for metro rail passengers focusing on fast booking, user experience, and accessibility.</p>
+    <p><strong>GitHub:</strong> <a href="https://github.com/Ayon3080/Metro-rail-online-ticketing-system" target="_blank">github.com/Ayon3080/Metro-rail-online-ticketing-system</a></p>
+  </div>
+</section>
+
+<section id="skills">
+  <h2 class="section-title">Skills</h2>
+
+  <div class="skills-grid">
+    <div class="skill-item">AutoCAD</div>
+    <div class="skill-item">Java</div>
+    <div class="skill-item">C++</div>
+    <div class="skill-item">C#</div>
+    <div class="skill-item">Python</div>
+</div>
+    <div class="skill-item">CSS</div>
+    <div class="skill-item">JavaScript</div>
+    <div class="skill-item">Python</div>
+    <div class="skill-item">C Programming</div>
+    <div class="skill-item">Digital Logic Basics</div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <p style="display:flex;align-items:center;gap:10px;">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/gmail.svg" alt="Email" width="22" height="22" style="filter:invert(0.3);">
+    <a href="mailto:ayon3080@gmail.com">ayon3080@gmail.com</a>
+  </p>
+
+  <p style="display:flex;align-items:center;gap:10px;">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="22" height="22" style="filter:invert(0.3);">
+    <a href="https://www.linkedin.com/in/ayon3080/" target="_blank">linkedin.com/in/ayon3080</a>
+  </p>
+
+  <p style="display:flex;align-items:center;gap:10px;">
+    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg" alt="GitHub" width="22" height="22" style="filter:invert(0.3);">
+    <a href="https://github.com/Ayon3080" target="_blank">github.com/Ayon3080</a>
+  </p>
+</section>
+
+<footer>
+  © 2025 Ayon — All Rights Reserved
+</footer>
+
+<script>
+  (function(){
+    const body = document.documentElement || document.querySelector('html');
+    const toggle = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    const label = document.getElementById('theme-label');
+
+    // apply stored preference or OS preference
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    function applyTheme(isDark){
+      if(isDark){
+        document.body.classList.add('dark');
+        icon.textContent = '☀️';
+        label.textContent = 'Light';
+      } else {
+        document.body.classList.remove('dark');
+        icon.textContent = '🌙';
+        label.textContent = 'Dark';
+      }
+    }
+
+    // initial
+    if(stored === 'dark' || (stored === null && prefersDark)){
+      applyTheme(true);
+    } else {
+      applyTheme(false);
+    }
+
+    toggle.addEventListener('click', ()=>{
+      const isDark = document.body.classList.toggle('dark');
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+      applyTheme(isDark);
+    });
+
+    // respond to OS changes if no explicit preference saved
+    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e=>{
+      if(!localStorage.getItem('theme')){
+        applyTheme(e.matches);
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>
